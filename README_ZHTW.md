@@ -8,6 +8,14 @@
 
 ## 安裝
 
+從 PyPI 安裝：
+
+```bash
+pip install bwai-workshop-tools
+```
+
+從原始碼安裝（開發者）：
+
 ```bash
 git clone https://github.com/simonliu-ai-product/buildwithai-workshop-autosetup-tool.git
 cd buildwithai-workshop-autosetup-tool
