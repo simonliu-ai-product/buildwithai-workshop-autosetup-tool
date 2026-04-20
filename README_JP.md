@@ -9,7 +9,9 @@ Google Cloud Workshop 環境設定のための汎用 CLI ツールです。JSON 
 ## インストール
 
 ```bash
-pip install bwai-workshop-tools
+git clone https://github.com/simonliu-ai-product/buildwithai-workshop-autosetup-tool.git
+cd buildwithai-workshop-autosetup-tool
+pip install -e .
 ```
 
 ## コマンド

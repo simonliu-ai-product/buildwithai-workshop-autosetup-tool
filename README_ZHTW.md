@@ -9,7 +9,9 @@
 ## 安裝
 
 ```bash
-pip install bwai-workshop-tools
+git clone https://github.com/simonliu-ai-product/buildwithai-workshop-autosetup-tool.git
+cd buildwithai-workshop-autosetup-tool
+pip install -e .
 ```
 
 ## 指令說明
