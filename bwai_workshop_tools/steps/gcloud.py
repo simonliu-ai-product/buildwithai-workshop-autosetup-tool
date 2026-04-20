@@ -119,17 +119,23 @@ class GeminiCliVertexAuthStep(BaseStep):
         if adc_env and Path(adc_env).exists():
             results.append(CheckResult(True, t("verify.gemini.adc_exists"), detail=adc_env))
         else:
-            # 使用 gcloud info 獲取配置目錄
+            # 檢查清單：gcloud 回報的路徑、標準家目錄路徑
+            possible_paths = []
+            
+            # 1. 使用 gcloud info 獲取配置目錄
             code, config_dir = run_silent('gcloud info --format="value(config.paths.global_config_dir)" 2>/dev/null')
             if code == 0 and config_dir:
-                adc_path = Path(config_dir) / "application_default_credentials.json"
-            else:
-                # 回退到預設路徑
-                adc_path = Path("~/.config/gcloud/application_default_credentials.json").expanduser()
+                possible_paths.append(Path(config_dir) / "application_default_credentials.json")
+            
+            # 2. 標準家目錄路徑 (Fallback)
+            possible_paths.append(Path("~/.config/gcloud/application_default_credentials.json").expanduser())
 
-            results.append(CheckResult(adc_path.exists(),
-                t("verify.gemini.adc_exists") if adc_path.exists() else t("verify.gemini.adc_not_found"),
-                detail=str(adc_path) if adc_path.exists() else ""
+            # 找出第一個存在的路徑
+            found_path = next((p for p in possible_paths if p.exists()), None)
+
+            results.append(CheckResult(found_path is not None,
+                t("verify.gemini.adc_exists") if found_path else t("verify.gemini.adc_not_found"),
+                detail=str(found_path) if found_path else ""
             ))
 
         return results
