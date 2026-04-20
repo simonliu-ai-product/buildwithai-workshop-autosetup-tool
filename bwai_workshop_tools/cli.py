@@ -13,7 +13,7 @@ from .i18n.loader import t, get_language, set_language, SUPPORTED_LANGUAGES
 @click.group()
 @click.version_option()
 def main():
-    """GDE Workshop 通用環境設定 CLI 工具"""
+    """Build with AI Workshop 通用環境設定 CLI 工具"""
     pass
 
 

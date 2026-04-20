@@ -1,6 +1,6 @@
 STRINGS: dict[str, str] = {
     # ── App ──────────────────────────────────────────────────
-    "app.title":                        "GDE Workshop Setup",
+    "app.title":                        "Build with AI Workshop Setup",
 
     # ── Runner ───────────────────────────────────────────────
     "runner.file_not_found":            "단계 설정 파일을 찾을 수 없음: ",

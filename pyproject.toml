@@ -3,18 +3,40 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "gde-workshop-tools"
+name = "bwai-workshop-tools"
 version = "0.1.0"
-description = "GDE Workshop 通用環境設定 CLI 工具"
+description = "Build with AI Workshop 通用環境設定 CLI 工具"
+readme = "README.md"
 requires-python = ">=3.9"
+license = {text = "Apache-2.0"}
+authors = [
+    {name = "Simon Liu", email = "simonliu.ai.product@gmail.com"}
+]
+keywords = ["google-cloud", "workshop", "setup", "cli", "gemini"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Build Tools",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+]
 dependencies = [
     "click>=8.0",
     "rich>=13.0",
 ]
 
+[project.urls]
+"Homepage" = "https://github.com/simonliu-ai-product/buildwithai-workshop-autosetup-tool"
+"Bug Tracker" = "https://github.com/simonliu-ai-product/buildwithai-workshop-autosetup-tool/issues"
+
 [project.scripts]
-bwai-workshop = "gde_workshop_tools.cli:main"
+bwai-workshop = "bwai_workshop_tools.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["gde_workshop_tools*"]
+include = ["bwai_workshop_tools*"]

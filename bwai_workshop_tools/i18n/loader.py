@@ -9,7 +9,7 @@ SUPPORTED_LANGUAGES: dict[str, str] = {
     "ko":    "한국어",
 }
 
-CONFIG_PATH = Path("~/.config/gde-workshop/settings.json").expanduser()
+CONFIG_PATH = Path("~/.config/bwai-workshop/settings.json").expanduser()
 
 
 def get_language() -> str:
