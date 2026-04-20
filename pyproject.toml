@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gde-workshop-tools"
+version = "0.1.0"
+description = "GDE Workshop 通用環境設定 CLI 工具"
+requires-python = ">=3.9"
+dependencies = [
+    "click>=8.0",
+    "rich>=13.0",
+]
+
+[project.scripts]
+bwai-workshop = "gde_workshop_tools.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["gde_workshop_tools*"]
