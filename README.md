@@ -1,5 +1,8 @@
 # bwai-workshop-tools
 
+[![PyPI version](https://img.shields.io/pypi/v/bwai-workshop-tools.svg)](https://pypi.org/project/bwai-workshop-tools/)
+[![License](https://img.shields.io/pypi/l/bwai-workshop-tools.svg)](https://pypi.org/project/bwai-workshop-tools/)
+
 A universal CLI tool for Google Cloud workshop environment setup. Define steps in a JSON file and run them all at once.
 
 **Available in:** [繁體中文](README_ZHTW.md) | [日本語](README_JP.md) | [한국어](README_KO.md)
