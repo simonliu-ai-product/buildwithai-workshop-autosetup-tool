@@ -25,7 +25,7 @@ class GeminiCliVertexAuthStep(BaseStep):
 
     def run(self) -> bool:
         persist_to = self.params.get("persist_to", "~/.gemini/.env")
-        location_default = self.params.get("location_default", "us-central1")
+        location_default = self.params.get("location_default", "global")
         check_conflicting = self.params.get("check_conflicting_keys", True)
 
         project = ui.ask(t("run.gemini.ask_project"))
