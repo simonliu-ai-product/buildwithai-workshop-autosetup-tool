@@ -6,9 +6,12 @@ STRINGS: dict[str, str] = {
     "runner.file_not_found":            "Step config file not found: ",
     "runner.unknown_type":              "Unknown step type: ",
     "runner.available_types":           "Available types: ",
-    "runner.confirm_step":              "Execute this step?",
+    "runner.confirm_step":              "Run this step?",
     "runner.step_skipped":              "Skipped",
+    "runner.verifying":                 "Verifying step status...",
+    "runner.step_verified":             "Verified, skipping automatically",
     "runner.step_completed":            "Step completed",
+
     "runner.step_failed":               "Step failed, stopping execution",
     "runner.all_done":                  "🎉  All steps completed!",
     "runner.dry_run_skip":              "(dry-run) Skipping",

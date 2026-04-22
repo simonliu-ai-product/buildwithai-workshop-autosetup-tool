@@ -8,6 +8,8 @@ STRINGS: dict[str, str] = {
     "runner.available_types":           "可用類型：",
     "runner.confirm_step":              "執行此步驟？",
     "runner.step_skipped":              "已跳過",
+    "runner.verifying":                 "正在驗證步驟狀態...",
+    "runner.step_verified":             "已通過驗證，自動跳過",
     "runner.step_completed":            "步驟完成",
     "runner.step_failed":               "步驟失敗，停止執行",
     "runner.all_done":                  "🎉  所有步驟完成！",

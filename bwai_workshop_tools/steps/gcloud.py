@@ -25,10 +25,14 @@ class GeminiCliVertexAuthStep(BaseStep):
 
     def run(self) -> bool:
         persist_to = self.params.get("persist_to", "~/.gemini/.env")
-        location_default = self.params.get("location_default", "global")
+        location_default = self.params.get("location_default", "us-central1")
         check_conflicting = self.params.get("check_conflicting_keys", True)
 
-        project = ui.ask(t("run.gemini.ask_project"))
+        # 嘗試抓取目前的 gcloud project 作為預設值
+        code, current_project = run_silent("gcloud config get-value project 2>/dev/null")
+        project_default = current_project if (code == 0 and current_project and current_project != "(unset)") else ""
+
+        project = ui.ask(t("run.gemini.ask_project"), default=project_default)
         if not project:
             ui.print_error(t("run.gemini.project_empty"))
             return False
@@ -64,7 +68,7 @@ class GeminiCliVertexAuthStep(BaseStep):
             replaced = False
             for key, value in keys_to_set.items():
                 if stripped.startswith(f"{key}=") or stripped.startswith(f"export {key}="):
-                    new_lines.append(f'export {key}="{value}"\n')
+                    new_lines.append(f'{key}="{value}"\n')
                     written_keys.add(key)
                     replaced = True
                     break
@@ -73,7 +77,7 @@ class GeminiCliVertexAuthStep(BaseStep):
 
         for key, value in keys_to_set.items():
             if key not in written_keys:
-                new_lines.append(f'export {key}="{value}"\n')
+                new_lines.append(f'{key}="{value}"\n')
 
         with open(env_path, "w") as f:
             f.writelines(new_lines)

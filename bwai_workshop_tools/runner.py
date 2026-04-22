@@ -46,12 +46,23 @@ class Runner:
                 ui.print_warning(t("runner.dry_run_skip"))
                 continue
 
+            # 建立步驟實例以進行驗證
+            step_cls = REGISTRY[step_type]
+            step = step_cls(step_config)
+
+            # 執行前先驗證
+            ui.print_info(t("runner.verifying"))
+            verify_results = step.verify()
+            all_passed = ui.print_verify_results(verify_results)
+
+            if all_passed:
+                ui.print_success(t("runner.step_verified"))
+                continue
+
             if not ui.confirm_step():
                 ui.print_warning(t("runner.step_skipped"))
                 continue
 
-            step_cls = REGISTRY[step_type]
-            step = step_cls(step_config)
             success = step.run()
 
             if success:
